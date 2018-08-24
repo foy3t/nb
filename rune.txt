@@ -1,147 +1,433 @@
-
-
-var
+var 
 item: TL2Item;
-
-function buffCheck: Boolean;
-var buff: TL2Buff;
-begin
-    if not User.Buffs.ByID(1204, buff) then begin
-        Result:=true;
-        Print('Buffs are needed. Buffing...');
-        Engine.MoveTo(83080, 148392, -3470);
-        Delay(500);
-        Engine.SetTarget('Aiko');// NPC ID
-        Delay(500);
-        Engine.DlgOpen;
-        Delay(500);
-        Engine.DlgSel(1);
-        Delay(500);
-        Print('Buffed.');    
-    end;
-Result:=false;
-end;
-
-function deadCheck: Boolean;
+function dropq: Boolean;
 begin
 Result := false;
-    if User.Dead then begin
+if  inventory.quest.byid(7587, item) and (item.count>0)  then begin
         Result := true;
-        Print('Dead. Pressing to village.');
-        Delay(1000);
-        Engine.FaceControl(0,false);
-        Engine.GoHome;
-        Delay(10000);
+        Delay(20000);
+                PlaySound (exepath+'beep.wav');
+          Engine.UseItem (7126);
+        Delay(5000*5);
+                Engine.FaceControl(0,false);
+                        Delay(500);
+        cinco; 
     end;
-end;
-
+    if  inventory.quest.byid(7597, item) and (item.count>9)  then begin
+        Result := true;
+        Delay(20000);
+        PlaySound (exepath+'beep.wav');
+          Engine.UseItem (7126);
+        Delay(5000*5);
+                Engine.FaceControl(0,false);
+                        Delay(500);
+                        oito;
+    end;
+    if  inventory.quest.byid(3266, item) and (item.count>4)  then begin
+        Result := true;
+        Delay(20000);
+        PlaySound (exepath+'beep.wav');
+          Engine.UseItem (7126);
+        Delay(5000*5);
+                Engine.FaceControl(0,false);
+                        Delay(500);
+                        onze;
+    end;
+    dropq := false;
+    end;
+procedure um;
 begin
 while true do begin
-delay(150);
-
-  if User.InRange(38608,-47168,896, 250, 150)
-          or User.InRange(38272,-49008,896, 250, 150)
-          or User.InRange(38752,-47792,896, 250, 150)
-          or User.InRange(38112,-49792,896, 250, 150)
-          or User.InRange(38848,-48640,896, 250, 150) then
-      begin
-        Engine.MoveTo(39113,-48225,898);
-        Engine.MoveTo(38294,-48089,898);
-
-        Engine.SetTarget (31698);
+if user.inrange (146787, 25801, -2039, 100,50 ) then begin
+Engine.MoveTo(147468, 25911, -2039);
+Engine.MoveTo(147758, 26353, -2166);
+Delay(300);
+Engine.SetTarget(31739);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.MoveTo(147468, 25911, -2039);
+ Engine.MoveTo(146787, 25801, -2039);
+Delay(300);
+Engine.SetTarget(30848);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (3);
+Delay(5000);
+dois;
+end;
+end;
+end;
+procedure dois;
+begin
+if user.inrange (83458, 148012, -3400, 200, 200 ) then begin
+Engine.MoveTo(81526, 149647, -3495);
+Engine.MoveTo(81302, 149686, -3495);
+Delay(300);
+Engine.SetTarget(30753);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (2);
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.MoveTo(83373, 149021, -3431);
+Engine.MoveTo(83412, 147959, -3431);
+Engine.SetTarget(30080);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (11);
+Delay(1000*10);
+tres;
+end;
+end;
+procedure tres;
+begin
+if user.inrange (73008, 118507, -3722, 200, 100) then begin
+Engine.SetTarget(30754);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (2);
+Delay(300);
+Engine.DlgSel (2);
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.UseItem (7126);
+Delay(5*5000);
+end;
+if user.inrange (83378, 147999, -3400, 200, 200) then begin
+Delay(300);
+Engine.SetTarget(30080);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (3);
+Delay(10000);
+end;
+if user.inrange (15671, 142994, -2696, 200, 200) then begin
+Engine.SetTarget(30059);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (13);
+quatro;
+end;
+end;
+procedure quatro;
+begin
+if  User.InRange (34475, 188095, -2976, 500, 200)  then  begin
+Engine.MoveTo(31279, 188343, -3275);
+Engine.MoveTo(29572, 188676, -3643);
+Engine.MoveTo(26216, 189102, -3518);
+Engine.MoveTo(22393, 187104, -3556);
+Engine.MoveTo(21019, 186317, -3234);
+Engine.MoveTo(20446, 186094, -3320);
+Engine.MoveTo(20138, 186175, -3392);
+Engine.MoveTo(19984, 185306, -3384);
+  end;
+  if  User.InRange (19984, 185306, -3384, 500, 200)  then
+  begin
+Engine.MoveTo(20411, 185028, -3384);
+Engine.MoveTo(20727, 184808, -3384);
+Delay(300);
+Engine.LoadZone (exepath + 'Zmaps\noblesse1');
+	Engine.FaceControl (0, true);
+	while not dropq do delay (1000);
+	end;
+	end;
+       procedure cinco;
+   begin
+   if user.inrange (83458, 148012, -3400, 200, 200 ) then begin
+   Engine.SetTarget (30080);
+   Engine.DlgOpen;
+   Delay (300);
+   Engine.DlgSel (1);
+      Delay (300);
+   Engine.DlgSel (8);
+         Delay (5000);
+         end;
+         if user.inrange (146787, 25801, -2039, 100,50 ) then begin
+Engine.MoveTo(147468, 25911, -2039);
+Engine.MoveTo(147758, 26353, -2166);
+Delay(300);
+Engine.SetTarget(31739);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.MoveTo(147468, 25911, -2039);
+ Engine.MoveTo(146787, 25801, -2039);
+Delay(300);
+Engine.SetTarget(30848);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (4);
+         Delay (5000);
+         end;
+         if  User.InRange (111385, 219357, -3544, 500, 200)  then
+  begin
+    Engine.MoveTo (111364, 219123, -3540);
+    Engine.MoveTo (110271, 219030, -3488);
+    Engine.MoveTo (110075, 218989, -3505);
+    Engine.MoveTo (110080, 217990, -3552);
+    Engine.MoveTo (110032, 217279, -3744);
+    Engine.MoveTo (108880, 217539, -3712);
+    Engine.MoveTo (107862, 217546, -3701);
+    Engine.MoveTo (107123, 218150, -3701);
+    Engine.MoveTo (107122, 217833, -3600);
+    Engine.MoveTo (107110, 217123, -3592);
+  end;
+  if  User.InRange (107110, 217123, -3592, 200, 200)  then
+  begin
+    Engine.SetTarget (31042);
+    Engine.DlgOpen;
+    Delay (500);
+    Engine.DlgSel ('quest');
+    Delay (500);
+    Engine.DlgSel (2);
+    Delay (500);
+    Engine.DlgSel (1);
+    Delay (500);
+    seis;
+  end; 
+end;
+procedure seis;
+begin
+ if  User.InRange (107110, 217123, -3592, 200, 200)  then   begin
+     Engine.MoveTo (107122, 217833, -3600);
+         Engine.MoveTo (107123, 218150, -3701);
+         Engine.MoveTo (107862, 217546, -3701);
+         Engine.MoveTo (108880, 217539, -3712);
+           Engine.MoveTo (110032, 217279, -3744);
+           Engine.MoveTo (110080, 217990, -3552);
+           Engine.MoveTo (110075, 218989, -3505);
+           Engine.MoveTo (110271, 219030, -3488);
+           Engine.MoveTo (111364, 219123, -3540);
+           Engine.MoveTo(111385, 219357, -3544);
+                  end;
+           if user.inrange(111385, 219357, -3544,200,100) then begin
+           Engine.SetTarget(30899);
+           Engine.DlgOpen;
+    Delay (500);
+    Engine.DlgSel (1);
+    Delay (500);
+    Engine.DlgSel (1);
+        Delay (5000);  
+        end;
+       if user.inrange (83458, 148012, -3400, 200, 200 ) then begin
+       Engine.SetTarget(30080);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (12);
+Delay(1000*10);
+sete;
+end;
+end;
+procedure sete;
+begin
+if User.InRange (131557, 114509, -3712, 500, 200)  then
+  begin
+  Engine.MoveTo(130988, 114504, -3752);
+  Engine.MoveTo(128198, 114708, -3655);
+  Engine.MoveTo(123983, 115311, -3686);
+  Engine.MoveTo(120760, 115876, -3709);
+Engine.MoveTo(117813, 117360, -3752);
+end;
+if User.InRange(117813, 117360, -3752, 500, 200) then begin
+    Engine.LoadZone (exepath + 'Zmaps\succubus');
+	Engine.FaceControl (0, true);
+		while not dropq do delay (1000);
+end;
+end;
+procedure oito;
+begin
+if user.inrange (83458, 148012, -3400, 200, 200 ) then begin
+   Engine.SetTarget (30080);
+   Engine.DlgOpen;
+   Delay (300);
+   Engine.DlgSel (1);
+      Delay (300);
+   Engine.DlgSel (2);
+         Delay (5000);
+   end;
+   if  User.InRange (111385, 219357, -3544, 500, 200)  then
+  begin
+    Engine.MoveTo (111364, 219123, -3540);
+    Engine.MoveTo (110271, 219030, -3488);
+    Engine.MoveTo (110075, 218989, -3505);
+    Engine.MoveTo (110080, 217990, -3552);
+    Engine.MoveTo (110032, 217279, -3744);
+    Engine.MoveTo (108880, 217539, -3712);
+    Engine.MoveTo (107862, 217546, -3701);
+    Engine.MoveTo (107123, 218150, -3701);
+    Engine.MoveTo (107122, 217833, -3600);
+    Engine.MoveTo (107110, 217123, -3592);
+    Engine.SetTarget (31042);
+    Engine.DlgOpen;
+    Delay (300);
+    Engine.DlgSel ('quest');
+    Delay (300);
+       Engine.DlgSel (2);
+      Delay (300);
+   Engine.DlgSel (1);
+   delay (300);
+    end;
+    if  User.InRange (107110, 217123, -3592, 200, 200)  then   begin
+     Engine.MoveTo (107122, 217833, -3600);
+         Engine.MoveTo (107123, 218150, -3701);
+         Engine.MoveTo (107862, 217546, -3701);
+         Engine.MoveTo (108880, 217539, -3712);
+           Engine.MoveTo (110032, 217279, -3744);
+           Engine.MoveTo (110080, 217990, -3552);
+           Engine.MoveTo (110075, 218989, -3505);
+           Engine.MoveTo (110271, 219030, -3488);
+           Engine.MoveTo (111364, 219123, -3540);
+           Engine.MoveTo(111385, 219357, -3544);
+                  end;
+           if user.inrange(111385, 219357, -3544,200,100) then begin
+           Engine.SetTarget(30899);
+           Engine.DlgOpen;
+    Delay (500);
+    Engine.DlgSel (1);
+    Delay (500);
+        Engine.DlgSel (4);
+            Delay (5000);
+    end;
+    if user.inrange (146787, 25801, -2039, 100,50 ) then begin
+Engine.MoveTo(147468, 25911, -2039);
+Engine.MoveTo(147758, 26353, -2166);
+Delay(300);
+Engine.SetTarget(31739);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.MoveTo(147468, 25911, -2039);
+ Engine.MoveTo(146787, 25801, -2039);
+Delay(300);
+Engine.SetTarget(30848);
+Delay(300);
+Engine.DlgOpen;
+Delay(300);
+Engine.DlgSel (1);
+Delay(300);
+Engine.DlgSel (9);
+Delay(5000);
+nove;
+end;
+        end;
+        procedure nove;
+        begin
+        if user.inrange(117110, 76883, -2688, 200, 100) then begin
+        Engine.MoveTo(117049, 76780, -2731);
+        Engine.MoveTo(117662, 76418, -2688);
+        Engine.MoveTo(117543, 76363, -2720);
+        Engine.MoveTo(118229, 76185, -2717);
+        Engine.MoveTo(119492, 76576, -2336);
+        Engine.MoveTo(119635, 76679, -2301);
+        Engine.MoveTo(119302, 77153, -2301);
+        Engine.MoveTo(119460, 77358, -2271);
+        Engine.MoveTo(119870, 77292, -2271);
+        Engine.SetTarget(30692);
+        Delay(300);
         Engine.DlgOpen;
-        Engine.DlgSel(1);
-        Engine.DlgSel(1);
-        Engine.CancelTarget;
-        Delay(3000);
-
-        Engine.MoveTo(39522,-48234,-784);
-        Engine.MoveTo(41591,-48221,-801);
-        Engine.MoveTo(43323,-48185,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(44368,-50592,-792, 250, 150) then begin
-        Engine.MoveTo(44368,-50592,-792);
-        Engine.MoveTo(43997,-49427,-795);
-        Engine.MoveTo(43831,-48480,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(44864,-47824,-792, 250, 150) then begin
-        Engine.MoveTo(44864,-47824,-792);
-        Engine.MoveTo(44025,-47893,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(43536,-50416,-792, 250, 150) then begin
-        Engine.MoveTo(43536,-50416,-792);
-        Engine.MoveTo(43833,-49293,-795);
-        Engine.MoveTo(43847,-48397,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(45632,-47968,-792, 250, 150) then begin
-        Engine.MoveTo(45632,-47968,-792);
-        Engine.MoveTo(44070,-47930,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(45824,-49056,-792, 250, 150) then begin
-        Engine.MoveTo(45824,-49056,-792);
-        Engine.MoveTo(46022,-48351,-795);
-        Engine.MoveTo(45441,-48000,-795);
-        Engine.MoveTo(44189,-47900,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(44000,-49952,-792, 250, 150) then begin
-        Engine.MoveTo(44000,-49952,-792);
-        Engine.MoveTo(43862,-48669,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(43792,-48928,-792, 250, 150) then begin
-        Engine.MoveTo(43792,-48928,-792);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(45072,-49936,-792, 250, 150) then begin
-        Engine.MoveTo(45072,-49936,-792);
-        Engine.MoveTo(44258,-49647,-795);
-        Engine.MoveTo(43864,-48552,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      if User.InRange(43408,-51120,-792, 250, 150) then begin
-        Engine.MoveTo(43408,-51120,-792);
-        Engine.MoveTo(43805,-49830,-795);
-        Engine.MoveTo(43870,-48626,-795);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-      if User.InRange(43744,-47920,-792, 250, 150) then begin
-        Engine.MoveTo(43744,-47920,-792);
-        Engine.MoveTo(43992, -47768, -792);
-      end;
-    if user.inrange(43992, -47768, -792, 150) then begin
-        buffCheck;
-    end;                                                
-    
-    if user.inrange(43992, -47768, -792, 150) and User.Buffs.ByID(1204, buffCheck) then begin
-    Engine.MoveTo(43816, -47704, -792);
-        Engine.SetTarget(31320);
+        Delay(300);
+        Engine.DlgSel (3);
+        Delay(300);
+        Engine.DlgSel (1);
+        Delay(300);
+        end;
+        if user.inrange (119870, 77292, -2271, 200, 100) then begin
+        Engine.MoveTo(119460, 77358, -2271);
+        Engine.MoveTo(119302, 77153, -2301);
+        Engine.MoveTo(119635, 76679, -2301);
+        Engine.MoveTo(119492, 76576, -2336);
+        Engine.MoveTo(118229, 76185, -2717);
+        Engine.MoveTo(117543, 76363, -2720);
+        Engine.MoveTo(117662, 76418, -2688);
+        Engine.MoveTo(117049, 76780, -2731);
+        Engine.MoveTo(117110, 76883, -2688);
+         Engine.SetTarget(gkhu);
+        Delay(300);
         Engine.DlgOpen;
-        Delay(500);
-        Engine.DlgSel(1);
-        Delay(500);
-        Engine.DlgSel('Swamp Of Screams');
+        Delay(300);
+        Engine.DlgSel (1);
+        Delay(300);
+        Engine.DlgSel (aden);
         Delay(5000);
-    end;    
-                          
-    if user.inrange(70011, -49895, -3246, 500, 200) then begin
-     Delay(5000);
-      Engine.MoveTo (89801, -44647, -2168);
-  Engine.MoveTo (90433, -44047, -2120);
-  Engine.MoveTo (92025, -43282, -2608);
-  Engine.MoveTo (92455, -43833, -2736);
-  Engine.MoveTo (92037, -44691, -2896);
-  Engine.MoveTo (90773, -44792, -3240);
-  Engine.MoveTo (90081, -43594, -3720);
-  Engine.MoveTo (89348, -43093, -3952);
-        Delay(500);
-        Engine.FaceControl(0, true);
-        while not deadCheck do delay(1000); //while not dead, do nothing and wait.
-    end;
-    end;
-      end;
+        end;
+        if user.inrange (146787, 25801, -2039, 100,50 ) then begin
+        Engine.MoveTo(147468, 25911, -2039);
+        Engine.MoveTo(147758, 26353, -2166);
+        Delay(300);
+        Engine.SetTarget(31739);
+        Delay(300);
+        Engine.DlgOpen;
+        Delay(300);
+        Engine.DlgSel (1);
+        Delay(300);
+        Engine.DlgSel (1);
+        Delay(300);      
+        Engine.MoveTo(147468, 25911, -2039);
+        Engine.MoveTo(146787, 25801, -2039);
+        Delay(300);
+        Engine.SetTarget(30848);
+        Delay(300);
+        Engine.DlgOpen;
+        Delay(300);
+        Engine.DlgSel (1);
+        Delay(300);
+        Engine.DlgSel (rune);
+        Delay(5000);
+        dez;
+        end;
+        end;
+        procedure dez;
+        begin //gk rune 
+
+       {
+  Teleport to Rune. Teleport to the Rune Castle Town Temple. Run through the temple to find Virgil, one of the three NPCs on a balcony.
+  Get to know them well because they're all about these Noblesse Quests. Talk to him, he'll have you talk to Ogmar.
+}
+end;
+end;
+                
+        
+   
+   
+begin
+nove;
 end.
