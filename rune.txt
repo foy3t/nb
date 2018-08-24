@@ -1,0 +1,147 @@
+
+
+var
+item: TL2Item;
+
+function buffCheck: Boolean;
+var buff: TL2Buff;
+begin
+    if not User.Buffs.ByID(1204, buff) then begin
+        Result:=true;
+        Print('Buffs are needed. Buffing...');
+        Engine.MoveTo(83080, 148392, -3470);
+        Delay(500);
+        Engine.SetTarget('Aiko');// NPC ID
+        Delay(500);
+        Engine.DlgOpen;
+        Delay(500);
+        Engine.DlgSel(1);
+        Delay(500);
+        Print('Buffed.');    
+    end;
+Result:=false;
+end;
+
+function deadCheck: Boolean;
+begin
+Result := false;
+    if User.Dead then begin
+        Result := true;
+        Print('Dead. Pressing to village.');
+        Delay(1000);
+        Engine.FaceControl(0,false);
+        Engine.GoHome;
+        Delay(10000);
+    end;
+end;
+
+begin
+while true do begin
+delay(150);
+
+  if User.InRange(38608,-47168,896, 250, 150)
+          or User.InRange(38272,-49008,896, 250, 150)
+          or User.InRange(38752,-47792,896, 250, 150)
+          or User.InRange(38112,-49792,896, 250, 150)
+          or User.InRange(38848,-48640,896, 250, 150) then
+      begin
+        Engine.MoveTo(39113,-48225,898);
+        Engine.MoveTo(38294,-48089,898);
+
+        Engine.SetTarget (31698);
+        Engine.DlgOpen;
+        Engine.DlgSel(1);
+        Engine.DlgSel(1);
+        Engine.CancelTarget;
+        Delay(3000);
+
+        Engine.MoveTo(39522,-48234,-784);
+        Engine.MoveTo(41591,-48221,-801);
+        Engine.MoveTo(43323,-48185,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(44368,-50592,-792, 250, 150) then begin
+        Engine.MoveTo(44368,-50592,-792);
+        Engine.MoveTo(43997,-49427,-795);
+        Engine.MoveTo(43831,-48480,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(44864,-47824,-792, 250, 150) then begin
+        Engine.MoveTo(44864,-47824,-792);
+        Engine.MoveTo(44025,-47893,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(43536,-50416,-792, 250, 150) then begin
+        Engine.MoveTo(43536,-50416,-792);
+        Engine.MoveTo(43833,-49293,-795);
+        Engine.MoveTo(43847,-48397,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(45632,-47968,-792, 250, 150) then begin
+        Engine.MoveTo(45632,-47968,-792);
+        Engine.MoveTo(44070,-47930,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(45824,-49056,-792, 250, 150) then begin
+        Engine.MoveTo(45824,-49056,-792);
+        Engine.MoveTo(46022,-48351,-795);
+        Engine.MoveTo(45441,-48000,-795);
+        Engine.MoveTo(44189,-47900,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(44000,-49952,-792, 250, 150) then begin
+        Engine.MoveTo(44000,-49952,-792);
+        Engine.MoveTo(43862,-48669,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(43792,-48928,-792, 250, 150) then begin
+        Engine.MoveTo(43792,-48928,-792);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(45072,-49936,-792, 250, 150) then begin
+        Engine.MoveTo(45072,-49936,-792);
+        Engine.MoveTo(44258,-49647,-795);
+        Engine.MoveTo(43864,-48552,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      if User.InRange(43408,-51120,-792, 250, 150) then begin
+        Engine.MoveTo(43408,-51120,-792);
+        Engine.MoveTo(43805,-49830,-795);
+        Engine.MoveTo(43870,-48626,-795);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+      if User.InRange(43744,-47920,-792, 250, 150) then begin
+        Engine.MoveTo(43744,-47920,-792);
+        Engine.MoveTo(43992, -47768, -792);
+      end;
+    if user.inrange(43992, -47768, -792, 150) then begin
+        buffCheck;
+    end;                                                
+    
+    if user.inrange(43992, -47768, -792, 150) and User.Buffs.ByID(1204, buffCheck) then begin
+    Engine.MoveTo(43816, -47704, -792);
+        Engine.SetTarget(31320);
+        Engine.DlgOpen;
+        Delay(500);
+        Engine.DlgSel(1);
+        Delay(500);
+        Engine.DlgSel('Swamp Of Screams');
+        Delay(5000);
+    end;    
+                          
+    if user.inrange(70011, -49895, -3246, 500, 200) then begin
+     Delay(5000);
+      Engine.MoveTo (89801, -44647, -2168);
+  Engine.MoveTo (90433, -44047, -2120);
+  Engine.MoveTo (92025, -43282, -2608);
+  Engine.MoveTo (92455, -43833, -2736);
+  Engine.MoveTo (92037, -44691, -2896);
+  Engine.MoveTo (90773, -44792, -3240);
+  Engine.MoveTo (90081, -43594, -3720);
+  Engine.MoveTo (89348, -43093, -3952);
+        Delay(500);
+        Engine.FaceControl(0, true);
+        while not deadCheck do delay(1000); //while not dead, do nothing and wait.
+    end;
+    end;
+      end;
+end.
